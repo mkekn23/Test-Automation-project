@@ -2,7 +2,9 @@ package ge.tbc.testautomation.pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import lombok.Getter;
 
+@Getter
 public class SecuredConsumerLoanPage extends CommonPage {
     private final Locator securedLoanDetailsButton;
     private final Locator amountInput;
@@ -40,19 +42,4 @@ public class SecuredConsumerLoanPage extends CommonPage {
         return page.locator(".tbcx-pw-calculator-form__currencies button:has-text('" + currency + "')");
     }
 
-    public Locator getAmountInput() {
-        return amountInput;
-    }
-
-    public Locator getYearsInput() {
-        return yearsInput;
-    }
-
-    public Locator getMonthlyPaymentResult() {
-        return monthlyPaymentResult;
-    }
-
-    public Locator getCalculationSummary() {
-        return calculationSummary;
-    }
 }

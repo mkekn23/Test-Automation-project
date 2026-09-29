@@ -24,9 +24,9 @@ public class MobilebankTest extends BaseTest{
     @Test(priority = 2, description = "Verify all feature explainer tabs update content and image properly")
     public void testExplainerTabsChangeContentAndImage() {
         mobilebankSteps
-                .verifyExplainerTabContent(MAIN_TAB, MAIN_TAB, "main")
-                .verifyExplainerTabContent(TRANSACTIONS_TAB, TRANSACTIONS_NEW_TAB, "transfer")
-                .verifyExplainerTabContent(PAYMENTS_TAB, PAYMENTS_NEW_TAB, "payment")
-                .verifyExplainerTabContent(NEWPRODUCTS_TAB, NEWPRODUCTS_TAB, "product");
+                .verifyExplainerTabContent(MAIN_TAB, MAIN_TAB)
+                .verifyExplainerTabContent(TRANSACTIONS_TAB, TRANSACTIONS_NEW_TAB)
+                .verifyExplainerTabContent(PAYMENTS_TAB, PAYMENTS_NEW_TAB)
+                .verifyExplainerTabContent(NEWPRODUCTS_TAB, NEWPRODUCTS_TAB);
     }
 }

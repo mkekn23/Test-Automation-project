@@ -5,7 +5,6 @@ import ge.tbc.testautomation.steps.OffersSteps;
 import ge.tbc.testautomation.utils.OffersDataProvider;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.TmsLink;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Factory;
 import org.testng.annotations.Test;

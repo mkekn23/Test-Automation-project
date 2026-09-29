@@ -16,7 +16,6 @@ public class ChatbotSteps {
         this.chatbotComponent = new ChatbotComponent(page);
     }
 
-    // 1. ჩატის გახსნა Quick Actions-იდან
     public ChatbotSteps openChatbotViaQuickActions() {
         quickActionsComponent.kebabMenuButton.scrollIntoViewIfNeeded();
         quickActionsComponent.kebabMenuButton.click();

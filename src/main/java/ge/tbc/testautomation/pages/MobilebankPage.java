@@ -2,7 +2,6 @@ package ge.tbc.testautomation.pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import ge.tbc.testautomation.pages.CommonPage;
 
 public class MobilebankPage extends CommonPage {
     private final Locator explainerSection;
@@ -22,7 +21,4 @@ public class MobilebankPage extends CommonPage {
         return explainerSection.locator("h2.tbcx-pw-explainer-section__body-content-text-title");
     }
 
-    public Locator getExplainerImage() {
-        return explainerSection.locator("img").first();
-    }
 }

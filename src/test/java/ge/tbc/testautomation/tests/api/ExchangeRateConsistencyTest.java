@@ -6,7 +6,6 @@ import ge.tbc.testautomation.steps.CurrencySteps;
 import ge.tbc.testautomation.tests.ui.BaseTest;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Story;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

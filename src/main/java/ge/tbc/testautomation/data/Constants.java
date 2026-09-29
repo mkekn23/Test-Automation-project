@@ -6,6 +6,8 @@ public class Constants {
     TBC_API_BASEURL = "https://apigw.tbcbank.ge",
     HEADER_NAV_TECHSCHOOL = "ტექსკოლა",
     HEADER_NAV_TBC = "თიბისი",
+    AGREE_TEXT = "თანხმობა",
+    ATMS = "ბანკომატები",
     SECTION_TITLE_TECHCOURSES = " ტექსკოლის კურსები ",
     SECTION_TITLE_COURSES = "კურსები",
     COURSE_NAME = "პროდუქტის დიზაინი (UI/UX & გრაფიკული დიზაინი)",

@@ -18,7 +18,7 @@ public class MobilebankSteps extends CommonSteps{
     }
 
 
-    public MobilebankSteps verifyExplainerTabContent(String tabName, String expectedTitle, String expectedImageSrcSubstring) {
+    public MobilebankSteps verifyExplainerTabContent(String tabName, String expectedTitle) {
         Locator tab = mobilebankPage.getTabButton(tabName);
         tab.click();
         assertThat(tab).hasClass(Pattern.compile(".*active.*"));

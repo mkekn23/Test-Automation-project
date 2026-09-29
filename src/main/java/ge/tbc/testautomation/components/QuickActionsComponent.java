@@ -15,16 +15,11 @@ public class QuickActionsComponent extends CommonPage {
         super(page);
 
         this.quickActionsContainer = page.locator("app-quick-actions");
-
-        // 1. სამი წერტილის ღილაკი (ტექსტური ფილტრით <tbcx-icon>-ის შიგთავსზე)
         this.kebabMenuButton = quickActionsContainer.locator("app-quick-action-button")
                 .filter(new Locator.FilterOptions().setHasText("kebab"));
-
-        // 2. ჩატის ღილაკი
         this.chatButton = quickActionsContainer.locator("app-quick-action-button")
                 .filter(new Locator.FilterOptions().setHasText("chat-dots"));
 
-        // 3. ვალუტის კურსის ბმული
         this.currencyRatesLink = quickActionsContainer.locator("a[href*='valutis-kursi']");
     }
 }

@@ -2,13 +2,17 @@ package ge.tbc.testautomation.pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import lombok.Getter;
+
+import static ge.tbc.testautomation.data.Constants.ATMS;
 
 public class AtmsAndBranchesPage extends CommonPage{
-
-    // Locators
+    @Getter
     private final Locator cityDropdown;
     private final Locator atmTab;
+    @Getter
     private final Locator atmTabButton;
+    @Getter
     private final Locator locationCards;
 
     public AtmsAndBranchesPage(Page page) {
@@ -16,7 +20,7 @@ public class AtmsAndBranchesPage extends CommonPage{
         this.cityDropdown = page.locator(".tbcx-pw-atm-branches-section_inputs tbcx-dropdown-selector, tbcx-dropdown-selector").first();
         this.atmTab = page.locator("text=ბანკომატები");
         this.atmTabButton = page.locator("button.tbcx-pw-tab-menu__item")
-                .filter(new Locator.FilterOptions().setHasText("ბანკომატები"));
+                .filter(new Locator.FilterOptions().setHasText(ATMS));
         this.locationCards = page.locator("app-atm-branches-section-list-item");
     }
 
@@ -37,18 +41,6 @@ public class AtmsAndBranchesPage extends CommonPage{
 
     public void clickAtmTab() {
         atmTab.click();
-    }
-
-    public Locator getAtmTabButton() {
-        return atmTabButton;
-    }
-
-    public Locator getCityDropdown() {
-        return cityDropdown;
-    }
-
-    public Locator getLocationCards() {
-        return locationCards;
     }
 
     public Page getPage() {

@@ -1,6 +1,5 @@
 package ge.tbc.testautomation.steps;
 
-import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import ge.tbc.testautomation.components.QuickActionsComponent;
 import ge.tbc.testautomation.pages.CurrencyPage;
