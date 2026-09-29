@@ -4,7 +4,6 @@ import com.microsoft.playwright.Response;
 import ge.tbc.testautomation.steps.AtmsAndBranchesUiSteps;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
-import io.qameta.allure.TmsLink;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -22,9 +21,8 @@ public class NetworkValidationTest extends BaseTest {
 
     @Test(
             priority = 1,
-            description = "ZEPHYR-201: Open ATMs and Branches page"
+            description = ":KANT-16 Open ATMs and Branches page"
     )
-    @TmsLink("ZEPHYR-201")
     public void testOpenAtmsAndBranchesPage() {
         uiSteps.openPage();
     }
@@ -33,9 +31,8 @@ public class NetworkValidationTest extends BaseTest {
     @Test(
             priority = 2,
             dependsOnMethods = "testOpenAtmsAndBranchesPage",
-            description = "ZEPHYR-202: Filter ATMs by city and capture network response"
+            description = "Filter ATMs by city and capture network response"
     )
-    @TmsLink("ZEPHYR-202")
     public void testFilterAtmsByCityAndCaptureNetwork() {
         capturedResponse = uiSteps.filterAtmsByCityWithNetworkCapture(TARGET_CITY);
     }
@@ -44,9 +41,8 @@ public class NetworkValidationTest extends BaseTest {
     @Test(
             priority = 3,
             dependsOnMethods = "testFilterAtmsByCityAndCaptureNetwork",
-            description = "ZEPHYR-203: Verify captured network response data matches target city and ui mathces the results"
+            description = "Verify captured network response data matches target city and ui mathces the results"
     )
-    @TmsLink("ZEPHYR-203")
     public void testVerifyNetworkResponseData() {
         uiSteps.verifyNetworkResponseData(capturedResponse, TARGET_CITY)
                 .verifyUiResultsUpdated(TARGET_CITY);

@@ -23,7 +23,7 @@ public class AtmsAndBranchesTest {
         branchSteps = new AtmsAndBranchesSteps();
     }
 
-    @Test(description = "Happy Path: Search branches by keyword and validate nested work hours")
+    @Test(description = "KAN-T13 | Happy Path: Search branches by keyword and validate nested work hours")
     public void testSearchBranchesHappyPath() {
         Response response = branchSteps.searchBranches(FILTER_BRANCH, DEFAULT_SEARCH_KEYWORD);
         branchSteps.verifyStatusCode(response, 200);
@@ -31,7 +31,7 @@ public class AtmsAndBranchesTest {
         branchSteps.verifyWorkHours(branches.get(0), WEEKDAY_MON_FRI);
     }
 
-    @Test(description = "Negative Path: Send invalid request payload type")
+    @Test(description = "KAN-T14 | Negative Path: Send invalid request payload type")
     public void testSearchBranchesNegativePath() {
         String invalidPayload = "{\"filter\": \"INVALID_TYPE\"}";
 

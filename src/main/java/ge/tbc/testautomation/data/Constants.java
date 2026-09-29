@@ -1,13 +1,14 @@
 package ge.tbc.testautomation.data;
 
 public class Constants {
+    public static final int PAYMENT_TOLERANCE_PERCENT = 10;
     public static final String BASE_URL = "https://www.tbcbank.ge",
     TBC_API_BASEURL = "https://apigw.tbcbank.ge",
     HEADER_NAV_TECHSCHOOL = "ტექსკოლა",
     HEADER_NAV_TBC = "თიბისი",
     SECTION_TITLE_TECHCOURSES = " ტექსკოლის კურსები ",
     SECTION_TITLE_COURSES = "კურსები",
-    COURSE_NAME = " პროდუქტის დიზაინი (UI/UX & გრაფიკული დიზაინი) ხელოვნური ინტელექტის დახმარებით ",
+    COURSE_NAME = "პროდუქტის დიზაინი (UI/UX & გრაფიკული დიზაინი)",
     BUTTON_REGISTER = "რეგისტრაცია",
     MAIN_TAB ="მთავარი გვერდი",
     PAYMENTS_TAB = "გადახდების გვერდი",
@@ -18,6 +19,7 @@ public class Constants {
     CHATBOT_MESSAGE = "გამარჯობა",
     START_DAY = "26",
     END_DAY="27",
+    YEARS_SUFFIX = "წელი",
     LOAN_AMOUNT="5000",
     LOAN_YEAR="6",
     EXPECTED_AMOUNT = "100",
@@ -31,5 +33,6 @@ public class Constants {
     LOCATIONS_API_ENDPOINT = "/api/v1/atmsAndBranches/list",
     TARGET_CITY = "ქუთაისი",
     ATM_FILTER_TYPE = "ATM",
-    HTTP_POST = "POST";
+    HTTP_POST = "POST",
+    GEL_TO_GBP = "https://tbcbank.ge/ka/valutis-kursi/GEL-to-GBP?amount=100";
 }

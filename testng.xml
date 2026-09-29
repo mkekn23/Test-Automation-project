@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TBC Test Automation Suite" parallel="classes" thread-count="2"  verbose="1">
+    <test name="All Tests">
+        <classes>
+            <!-- UI -->
+            <class name="ge.tbc.testautomation.tests.ui.ChatbotTest"/>
+            <class name="ge.tbc.testautomation.tests.ui.CurrencyTimeFilterTest"/>
+            <class name="ge.tbc.testautomation.tests.ui.MobilebankTest"/>
+            <class name="ge.tbc.testautomation.tests.ui.MortgageTest"/>
+            <class name="ge.tbc.testautomation.tests.ui.NetworkValidationTest"/>
+            <class name="ge.tbc.testautomation.tests.ui.OffersLocalizationTest"/>
+            <class name="ge.tbc.testautomation.tests.ui.TechschoolTest"/>
+            <!-- API / DB -->
+            <class name="ge.tbc.testautomation.tests.api.AtmsAndBranchesTest"/>
+            <class name="ge.tbc.testautomation.tests.api.ExchangeRateConsistencyTest"/>
+            <class name="ge.tbc.testautomation.tests.LoanCalculatorDbTest"/>
+        </classes>
+    </test>
+</suite>

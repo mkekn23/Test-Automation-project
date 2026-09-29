@@ -10,6 +10,7 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+import static ge.tbc.testautomation.data.Constants.GEL_TO_GBP;
 
 public class CurrencySteps extends CommonSteps{
     private final QuickActionsComponent quickActionsComponent;
@@ -26,6 +27,8 @@ public class CurrencySteps extends CommonSteps{
         quickActionsComponent.kebabMenuButton.click();
 
         quickActionsComponent.currencyRatesLink.click();
+
+        assertThat(page).hasURL(Pattern.compile(".*valutis-kursi.*"));
         return this;
     }
 
@@ -66,7 +69,7 @@ public class CurrencySteps extends CommonSteps{
 
     @Step("Navigate to GEL to GBP currency calculator page")
     public CurrencySteps navigateToGelToGbpCalculator() {
-        currencyRatesPage.page.navigate("https://tbcbank.ge/ka/valutis-kursi/GEL-to-GBP?amount=100");
+            currencyRatesPage.page.navigate(GEL_TO_GBP);
         return this;
     }
 
@@ -87,7 +90,7 @@ public class CurrencySteps extends CommonSteps{
     @Step("Verify swapped calculator sell rate (1/sellRate): {sellRate}")
     public CurrencySteps verifySwappedSellRate(double sellRate) {
         double calculatedRate = 1 / sellRate;
-        String formattedSellRate = String.format(Locale.US, "%.2f", calculatedRate);
+        String formattedSellRate = String.format(Locale.US, "%.3f", calculatedRate);
         String expectedText = "1 GBP = " + formattedSellRate + " GEL";
         assertThat(currencyRatesPage.calculatorDescription).hasText(expectedText);
         return this;

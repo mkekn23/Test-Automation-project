@@ -13,7 +13,7 @@ public class TechschoolTest extends BaseTest {
         techschoolSteps = new TechschoolSteps(page);
     }
 
-    @Test(priority = 1, description = "Step 1: Navigate to homepage and select 'Techschool' from 'TBC' header navigation")
+    @Test(priority = 1, description = "KAN-T11 | Step 1: Navigate to homepage and select 'Techschool' from 'TBC' header navigation")
     @Description("Navigates to the homepage, hovers over the TBC navigation item, and opens the Techschool page.")
     public void navigateToTechschoolPage() {
         techschoolSteps.navigateToTechschoolPage();

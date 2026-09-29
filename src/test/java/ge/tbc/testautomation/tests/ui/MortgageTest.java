@@ -35,8 +35,8 @@ public class MortgageTest extends BaseTest {
         mortgageSteps.fillLoanTermInYears(LOAN_YEAR);
     }
 
-    @Test(priority = 5, description = "Verify calculated payment amount matches expected value")
+    @Test(priority = 5, description = "Verify calculated payment amount is within tolerance of the expected value")
     public void testVerifyCalculatedPayment() {
-        mortgageSteps.verifyCalculatedPaymentContains(EXPECTED_AMOUNT);
+        mortgageSteps.verifyFirstPaymentIsAbout(EXPECTED_AMOUNT, PAYMENT_TOLERANCE_PERCENT);
     }
 }

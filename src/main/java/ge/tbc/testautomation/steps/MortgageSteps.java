@@ -4,6 +4,10 @@ import com.microsoft.playwright.Page;
 import ge.tbc.testautomation.components.HeaderComponent;
 import ge.tbc.testautomation.pages.MortgagePage;
 
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class MortgageSteps {
@@ -15,9 +19,7 @@ public class MortgageSteps {
         this.mortgagePage = new MortgagePage(page);
     }
 
-    // 1. ჰედერის მენიუდან იპოთეკური სესხის გვერდზე გადასვლა
     public MortgageSteps navigateToMortgagePage() {
-        // თუ მეგა-მენიუ ჰოვერზე ან კლიკზე იხსნება:
         headerComponent.formeNavigationButton.hover();
         headerComponent.mortgageSubMenuLink.first().click();
 
@@ -25,29 +27,38 @@ public class MortgageSteps {
         return this;
     }
 
-    // 2. "ორი პერიოდი" ჩანართის არჩევა
     public MortgageSteps selectTwoPeriodsTab() {
         mortgagePage.twoPeriodsTabBtn.click();
+
+        assertThat(mortgagePage.calculatedInfoContainer).containsText("პირველი 3 წელი");
         return this;
     }
 
-    // 3. თანხის შეყვანა
     public MortgageSteps fillLoanAmount(String amount) {
         mortgagePage.loanAmountInput.fill(amount);
         mortgagePage.loanAmountInput.press("Enter");
+
+        assertThat(mortgagePage.loanAmountInput).hasValue(amount);
         return this;
     }
 
-    // 4. ვადის (წლების) შეყვანა
     public MortgageSteps fillLoanTermInYears(String years) {
         mortgagePage.loanTermYearsInput.fill(years);
         mortgagePage.loanTermYearsInput.press("Enter");
+
+        assertThat(mortgagePage.loanTermYearsInput).hasValue(years);
         return this;
     }
 
-    // 5. დათვლილი თანხის გადამოწმება
-    public MortgageSteps verifyCalculatedPaymentContains(String expectedAmountText) {
-        assertThat(mortgagePage.getCalculatedAmountLocator(expectedAmountText).first()).isVisible();
+    public MortgageSteps verifyFirstPaymentIsAbout(String expectedAmount, int tolerancePercent) {
+        int expected = Integer.parseInt(expectedAmount);
+        int delta = Math.max(1, expected * tolerancePercent / 100);
+        String accepted = IntStream.rangeClosed(expected - delta, expected + delta)
+                .mapToObj(String::valueOf)
+                .collect(Collectors.joining("|"));
+
+        assertThat(mortgagePage.firstMonthlyPayment)
+                .hasText(Pattern.compile("^\\s*(" + accepted + ")(\\.\\d+)?\\s*₾?\\s*$"));
         return this;
     }
 }

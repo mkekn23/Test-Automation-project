@@ -29,27 +29,36 @@ public class OffersLocalizationTest extends BaseTest {
 
     @Test(
             priority = 1,
-            description = "Open home page and navigate to Offers via header"
+            description = "KAN-T17 | Switch the site language via the header language switcher"
     )
-    public void testNavigateToOffersAndVerifyLocalization() {
-        offersSteps.openPageAndNavigateToOffers(localeData);
+    public void testSwitchLanguage() {
+        offersSteps.switchLanguage(localeData);
     }
 
     @Test(
             priority = 2,
-            dependsOnMethods = "testNavigateToOffersAndVerifyLocalization",
-            description = "Click 'All Offers' button and verify localized page"
+            dependsOnMethods = "testSwitchLanguage",
+            description = "Navigate to Offers page via the header and verify localized heading"
     )
-    public void testClickAllOffersAndVerifyLocalization() {
-        offersSteps.clickAllOffersAndVerifyPage(localeData);
+    public void testNavigateToOffersViaHeader() {
+        offersSteps.navigateToOffers(localeData);
     }
 
     @Test(
             priority = 3,
-            dependsOnMethods = "testClickAllOffersAndVerifyLocalization",
-            description = "Select Shopping category filter and verify localized label and state"
+            dependsOnMethods = "testNavigateToOffersViaHeader",
+            description = "Click 'All offers' button and verify localized page"
     )
-    public void testFilterByShoppingAndVerifyLocalization() {
-        offersSteps.selectShoppingFilterAndVerify(localeData);
+    public void testOpenAllOffers() {
+        offersSteps.openAllOffers(localeData);
+    }
+
+    @Test(
+            priority = 4,
+            dependsOnMethods = "testOpenAllOffers",
+            description = "Filter by Shopping category and verify localized label, checked state and URL"
+    )
+    public void testFilterByCategory() {
+        offersSteps.filterByCategory(localeData);
     }
 }

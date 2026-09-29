@@ -29,7 +29,7 @@ public class ExchangeRateConsistencyTest extends BaseTest {
         currencySteps = new CurrencySteps(page);
     }
 
-    @Test(priority = 1, description = "Fetch GEL to GBP exchange rates from API")
+    @Test(priority = 1, description = "KAN-T12 | Fetch GEL to GBP exchange rates from API")
     public void testFetchApiExchangeRates() {
         apiResponse = exchangeCurrencyApi.getExchangeRate("GEL", "GBP");
     }

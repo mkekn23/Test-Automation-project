@@ -21,7 +21,7 @@ public class LoanCalculatorDbTest extends BaseTest {
         calculatorSteps = new SecuredConsumerLoanSteps(page);
     }
 
-    @Test(priority = 1, dependsOnMethods = "testOpenHomePage", description = "navigate to Consumer Loans section")
+    @Test(priority = 1, description = "KAN-T15 | navigate to Consumer Loans section")
     public void testNavigateToConsumerLoans() {
         calculatorSteps.navigateToConsumerLoans();
     }
@@ -40,9 +40,9 @@ public class LoanCalculatorDbTest extends BaseTest {
             description = "Calculate loan and verify results using DB records"
     )
     public void testCalculateAndVerifyLoan(LoanCalculatorData loanData) {
-        calculatorSteps.enterAmount(loanData.getAmount());
         calculatorSteps.selectCurrency(loanData.getCurrency());
+        calculatorSteps.enterAmount(loanData.getAmount());
         calculatorSteps.enterPeriod(loanData.getPeriod());
-        calculatorSteps.verifyCalculationResult();
+        calculatorSteps.verifyCalculationResult(loanData);
     }
 }

@@ -10,6 +10,7 @@ public class MortgagePage extends CommonPage {
     public final Locator loanTermYearsInput;
 
     public final Locator calculatedInfoContainer;
+    public final Locator firstMonthlyPayment;
 
     public MortgagePage(Page page) {
         super(page);
@@ -22,6 +23,11 @@ public class MortgagePage extends CommonPage {
         this.loanTermYearsInput = page.locator("tbcx-slider-input input[type='number']");
 
         this.calculatedInfoContainer = page.locator("div.tbcx-pw-calculated-info");
+
+
+        this.firstMonthlyPayment = calculatedInfoContainer
+                .locator("div.tbcx-pw-calculated-info__rows-item-info--color-primary")
+                .first();
     }
 
     public Locator getCalculatedAmountLocator(String amountText) {
